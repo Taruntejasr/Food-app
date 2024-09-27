@@ -15,7 +15,7 @@ const Card = (props) => {
         <p>{areaName}</p>
         <p>{costofTwo}</p>
         <p>{cuisines[0]}</p>
-        <p>git hub</p>
+         
         </b>
 
       </div>

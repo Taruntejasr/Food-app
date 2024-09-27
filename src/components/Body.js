@@ -1,7 +1,7 @@
 
  import Card from "./Card"
  import Shimmer from "./Shimmer"
- 
+ import {Link} from "react-router-dom"
 import {useEffect,useState} from "react"
 
 
@@ -54,7 +54,8 @@ const Body = () => {
      <div className="flex flex-wrap">
          
          {
-            data.map(each=><Card key={each.info.id} item={each}/>)
+            data.map((each)=>(
+            <Link to={"/menu/"+each.info.id}> <Card key={each.info.id} item={each}/></Link>))
          }
        
      </div>

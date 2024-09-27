@@ -2,11 +2,18 @@
  import "./App.css"
  import Body from "./components/Body"
  import {createBrowserRouter,Outlet} from "react-router-dom"
- import Offer from "./components/Offer"
- import Help from "./components/Help"
-import Search from "./components/Search"
-import SignIn from "./components/Sign In"
- import Cart from "./components/Cart"
+ import {lazy, Suspense} from "react"
+//  import Offer from "./components/Offer"
+//  import Help from "./components/Help"
+// import Search from "./components/Search"
+// import SignIn from "./components/Sign In"
+//  import Cart from "./components/Cart"
+ import Menu from "./components/Menu";
+ const Offer = lazy(()=>import("./components/Offer"))
+ const Help = lazy(()=>import("./components/Help"))
+ const Search = lazy(()=>import("./components/Search"))
+ const SignIn =lazy(()=>import("./components/Sign In"))
+ const Cart = lazy(()=>import("./components/Cart"))
  
 
 
@@ -33,25 +40,29 @@ function App() {
      },
   {
     path:"/Offer",
-    element:<Offer/>
+    element:<Suspense fallback={<h1>Loading</h1>}><Offer/></Suspense> 
   },
    
   {
     path:"/Help",
-    element:<Help/>
+    element:<Suspense fallback={<h1>Loading</h1>}><Help/></Suspense>
   },
   
   {
     path:"/Cart",
-    element:<Cart/>
+    element:<Suspense fallback={<h1>Loading</h1>}><Help/><Cart/></Suspense> 
   },
   {
     path:"/Search",
-    element:<Search/>
+    element:<Suspense fallback={<h1>Loading</h1>}><Search/></Suspense> 
   },
   {
     path:"/Sign In",
-    element:<SignIn/>
+    element:<Suspense fallback={<h1>Loading</h1>}><SignIn/></Suspense> 
+  },
+  {
+    path:"/menu/:re",
+    element:<Menu/>
   }
 
    
